@@ -38,7 +38,7 @@ def logout_user():
     return Response("Logged out", status=200)
 
 
-@users.route('/username/check/<username>')
+@users.route('/username/check/<username>', methods=['GET'])
 def username_check(username):
     """
     Endpoint to check whether or not a given username is available

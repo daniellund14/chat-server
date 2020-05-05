@@ -5,15 +5,6 @@ from ..users import users_service
 from ..messages import messages_service
 
 
-@socketio.on('joined', namespace='/chat')
-def joined(message):
-    """Sent by clients when they enter a room.
-    A status message is broadcast to all people in the room."""
-    print("joined")
-    # room = 'test'
-    # join_room(room)
-
-
 @socketio.on('create username', namespace='/chat')
 def username_created(message):
     """
@@ -50,6 +41,7 @@ def create_room(message):
     # Add each user channel entry
     chat_service.add_user_channel(channel, user_id_1)
     chat_service.add_user_channel(channel, user_id_2)
+    join_room(room)
     emit("room created", {"room": room, "user_id_1": user_id_1, "user_id_2": user_id_2})
 
 
@@ -57,23 +49,17 @@ def create_room(message):
 def message_handler(message):
     """Sent by a client when the user entered a new message.
     The message is sent to all people in the room."""
-    creating_user = message["from"]
-    receiving_user = message["to"]
-    room = message["room"]
-    text = message["text"]
+    try:
+        creating_user = message["from"]
+        receiving_user = message["to"]
+        room = message["room"]
+        text = message["text"]
+    except:
+        emit("message error", {'msg': 'new message failed to post', 'reason': 'message missing fields'})
+        return
     channel = chat_service.get_private_channel_by_room_name(room)
     if not channel:  # For simplicity catching generic exception
         emit("message error", {'msg': 'new message failed to post', 'reason': 'room name does not exist'})
         return
     messages_service.create_message(text, room, creating_user, receiving_user, channel=channel)
-    emit('new message', {'display_text': f'{creating_user} {text}'}, room=room)
-
-
-@socketio.on('left', namespace='/chat')
-def left(message):
-    """Sent by clients when they leave a room.
-    A status message is broadcast to all people in the room."""
-    username = message['username']
-    room = message['room']
-    leave_room(room)
-    emit('status', {'msg': f'{username}', 'status': 'offline'}, room=room)
+    emit('new message', {'display_text': f'{creating_user}: {text}'}, room=room)
