@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Guild-Chat</title>
+</head>
+<body>
+<h1>Guild Chat</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.username.label }}: {{ form.username() }} {% for error in form.username.errors %}{{ error }}{% endfor %}<br>
+    {{ form.submit() }}
+</form>
+</body>
+</html>
