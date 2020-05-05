@@ -7,10 +7,12 @@ The services utilizes REST endpoints and SocketIO connections to drive most of t
 
 ## Running the Server
 - Requirements
- - Install virtualenv
- - Install Python3
+    - Install virtualenv
+    - Install Python3
  - Commands
   - Run Server
+    - `virtualenv venv`
+    - `source venv/bin/activate`
     - `./setup.sh`
     - `flask run`
   - Run Tests
