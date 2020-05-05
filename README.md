@@ -14,6 +14,8 @@ The services utilizes REST endpoints and SocketIO connections to drive most of t
   - `source venv/bin/activate`
   - Run Server
     - `pip install -r requirements.txt`
+    - `./setup.sh`
+    - `flask run`
   - Run Tests
     - `pytest tests`
     
