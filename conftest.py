@@ -2,6 +2,7 @@ import os
 import pytest
 from app import db as _db
 from app import create_flask_app
+from flask_socketio import test_client
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -61,3 +62,14 @@ def session(db, request):
 
     request.addfinalizer(teardown)
     return session
+
+
+@pytest.fixture(scope='session')
+def socketio_client(request, app):
+    client = test_client
+
+    def teardown():
+        print("SocketIO teardown")
+
+    request.addfinalizer(teardown)
+    return client

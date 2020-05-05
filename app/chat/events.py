@@ -12,7 +12,11 @@ def username_created(message):
     :param message: message containing username
     :return: None
     """
-    username = message["username"]
+    try:
+        username = message["username"]
+    except:
+        emit("error", {"reason": "missing username field"})
+        return
     users_service.create_new_user(username)
 
 
