@@ -3,7 +3,7 @@
 ## General
 This service is a Python service utilizing Flask to serve as a basic API for a messenger application. It does not take into account security, authentication, etc.
 
-The services utilizes REST endpoints and SocketIO connections to drive most of the app. The REST endpoints are shown via the postman collection included and listed below, and SocketIO events are documented in the included lucid chart image.
+The services utilizes REST endpoints and SocketIO connections to drive most of the app. The REST endpoints are shown via the postman collection included and inside the [Endpoints](Endpoints.md), and SocketIO events are documented in the [Events](Events.md) and included lucid chart image.
 
 ## Running the Server
 - Requirements
@@ -18,7 +18,8 @@ The services utilizes REST endpoints and SocketIO connections to drive most of t
     - `pytest tests`
     
 ## Documentation
-[]
+[Endpoints](Endpoints.md)
+[Events](Events.md)
 
 ### Interaction Flow
 - Create new SocketIO client
