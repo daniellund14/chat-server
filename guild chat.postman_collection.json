@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "d799fe7e-9f9c-43cd-b3fe-e62bd6491acb",
+		"name": "guild chat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "chat",
+			"item": [
+				{
+					"name": "GET - user channels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/chat/channels/user/2",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"chat",
+								"channels",
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "GET - username check",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/users/username/check/daniel",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"username",
+								"check",
+								"daniel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST - login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "brandon",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:5000/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - online users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/users/online",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"online"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST - logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"daniel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/users/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "GET - all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/messages/all",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"messages",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - messages from to",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/messages/from/dylan/to/daniel",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"messages",
+								"from",
+								"dylan",
+								"to",
+								"daniel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET - messages room",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/messages/room/daniel_dylan",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"messages",
+								"room",
+								"daniel_dylan"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

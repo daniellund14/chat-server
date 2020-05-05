@@ -18,8 +18,8 @@ The services utilizes REST endpoints and SocketIO connections to drive most of t
     - `pytest tests`
     
 ## Documentation
-[Endpoints](Endpoints.md)
-[Events](Events.md)
+- [Endpoints](Endpoints.md)
+- [Events](Events.md)
 
 ### Interaction Flow
 - Create new SocketIO client
@@ -44,6 +44,7 @@ I chose to utilize SocketIO here due to the nature of chatting. There are many i
 This app made a lot of simplifications and assumptions for the sake of time. Some examples include, not utilizing Foreign keys on the models. This made it easier to not get stuck writing queries around foreign key constraints, however it eliminates a lot of the error checking required. Another simplification and assumption is that Clients and Servers inside SocketIO can successfully handle the multitude of rooms on the API. There would be millions of different chat rooms inside a production server and in no way would this implementation be able to withstand that traffic. This was my first time utilizing SocketIO outside of a small demo app, so there may be some other limitations that I am not aware of, and any suggestions would be appreciated. Overall, the API has all of the expected functionality, and is something that could be utilized as a good starting point for future projects.
 
 ### Changes With More Time
+- Unit testing on SocketIO and flask (had to limit testing due to lack of knowledge and time)
 - Wrap in Docker and Docker compose
 - Move off of SQLite
 - Swagger for REST endpoint documentation

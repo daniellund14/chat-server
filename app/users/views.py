@@ -34,7 +34,10 @@ def logout_user():
     """
     request_json = request.get_json()
     username = request_json["username"]
-    users_service.logout_user(username)
+    try:
+        users_service.logout_user(username)
+    except:
+        return Response("User does not exist", 400)
     return Response("Logged out", status=200)
 
 
